@@ -2,16 +2,12 @@ import { View , Text, StyleSheet} from "react-native"
 import { Table, Row, Rows } from 'react-native-table-component';
 import { DataTable } from "react-native-paper";
 
-import Icon from 'react-native-vector-icons/AntDesign';
 
-const MinhasDoacoes = ( ) => {
-    const header = ['heading 1', 'heading 2', 'heading 3']
-    const data = [
-        ['gfg1', 'gfg2', 'gfg3'],
-        ['gfg4', 'gfg5', 'gfg6'],
-        ['gfg7', 'gfg8', 'gfg9']
+import ButtonVoltar from "../components/ButtonVoltar";
+import Buttoncpm from "../components/Buttoncpm";
+
+const MinhasDoacoes = ({navigation}) => {
   
-    ]
     return(
       <View style={styles.container}>
           <Text style={{fontSize : 30}} >Minhas doações</Text>
@@ -37,9 +33,13 @@ const MinhasDoacoes = ( ) => {
                     <DataTable.Cell style={{textAlign : 'center'}}>1L</DataTable.Cell>
                     <DataTable.Cell>XXXXX</DataTable.Cell>
                 </DataTable.Row>
-
              </DataTable>
-             <Icon name="leftcircleo" size={30} style={{marginTop : 40}}/>
+
+           <View style={{flexDirection : 'row', alignItems : 'space-between', }}>
+             <ButtonVoltar />
+           
+            <Buttoncpm  onPress={() => navigation.navigate('NovaDoacao')} text='Novo'/>
+           </View>
       </View>
     )
 }
